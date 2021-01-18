@@ -130,6 +130,11 @@ export interface RequestOptions {
    * It rely on lookup and have the same version requirement.
    */
   checkAddress?: (ip: string, family: number | string) => boolean;
+  /**
+  * The files will send with multipart/form-data format, base on formstream.
+  * If method not set, will use POST method by default.
+  */
+  files?:  Array<Readable | Buffer | string | {pipe: Function}> | {[key: string]: Readable | Buffer | string | {pipe: Function}} | Readable | Buffer | string | {pipe: Function}
 }
 
 export interface HttpClientResponse<T> {
